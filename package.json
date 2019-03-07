@@ -15,7 +15,7 @@
     "cors",
     "v17",
     "v18",
-    "v19",
+    "v19"
   ],
   "bugs": {
     "url": "https://github.com/dantheman213/hapi-modern-cors/issues"
@@ -26,6 +26,6 @@
   },
   "devDependencies": {
     "eslint": "^4.19.1",
-    "hapi": "^17.0.1",
+    "hapi": "^17.0.1"
   }
 }
