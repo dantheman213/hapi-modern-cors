@@ -40,9 +40,7 @@ Add this to your hapi initialization:
 
 ##### How do CORS pre-flight work?
 
-Before a CORS request start a pre-flight request is typically sent. This is a request using the `OPTIONS` keyword
-and the response to this request should contain some default CORS headers. This plugin will automatically create all
-`OPTIONS` routes to match your existing endpoints.
+Before requests can begin to use CORS a pre-flight request is typically sent to the server at the same path you're requesting. However, the request will use the `OPTIONS` rather than `GET`, `POST`, etc. The response to this request should contain some default CORS headers This plugin will automatically create all OPTIONS` routes to match your existing endpoints.
 
 ##### What happens when the origin is set?
 
