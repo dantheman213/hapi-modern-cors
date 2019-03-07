@@ -6,8 +6,9 @@ https://www.npmjs.com/package/hapi-modern-cors
 
 ### Description
 
-As of this writing (March 2019) there are no working hapi CORS npm packages available.
-There was a major refactor of the hapi project in v17 and beyond that broke existing paradigms.
+As of this writing (March 2019) there are no other working CORS npm packages available for the
+latest versions of hapi. There was a major refactor of the hapi project in v17+ that broke previous
+paradigms.
 
 ### Installation
 
