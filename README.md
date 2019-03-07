@@ -1,6 +1,6 @@
 # hapi-modern-cors
 
-Dead simple CORS responses for Hapi.
+Dead simple CORS responses for hapi.
 
 ### Description
 
