@@ -1,0 +1,31 @@
+{
+  "name": "hapi-modern-cors",
+  "version": "1.0.0",
+  "description": "Enables cors for a hapijs v17+ app after hapijs was refactored.",
+  "main": "index.js",
+  "author": "Daniel Gillespie <danielg@csu.fullerton.edu>",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dantheman213/hapi-modern-cors.git"
+  },
+  "keywords": [
+    "hapi",
+    "hapijs",
+    "cors",
+    "v17",
+    "v18",
+    "v19",
+  ],
+  "bugs": {
+    "url": "https://github.com/dantheman213/hapi-modern-cors/issues"
+  },
+  "homepage": "https://github.com/dantheman213/hapi-modern-cors#readme",
+  "dependencies": {
+    "joi": "^7.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "hapi": "^17.0.1",
+  }
+}

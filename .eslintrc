@@ -1,0 +1,8 @@
+{
+  "globals": {
+    "rootRequire": true
+  },
+  "rules": {
+    "no-restricted-syntax": "off"
+  }
+}
