@@ -10,6 +10,11 @@ As of this writing (March 2019) there are no other working CORS npm packages ava
 latest versions of hapi. There was a major refactor of the hapi project in v17+ that broke previous
 paradigms.
 
+### How does it work?
+
+This plugin, by default, will append open and permissive CORS headers on all of your existing endpoints and responses.
+Additionally, `OPTIONS` will be enabled on all of your existing routes in order to ensure CORS pre-flight works.
+
 ### Installation
 
     npm install hapi-modern-cors --save
@@ -47,6 +52,10 @@ Before requests can begin to use CORS a pre-flight request is typically sent to 
 When `origin` is set in the request header then the response will set the origin from `*` to that origin and
 `Allow-Credentials` will be set from `false` to `true`. For security reasons, `Allow-Credentials` cannot be set to
 `true` when `*` is used for `origin`.
+
+### What's next?
+
+The next features and goals for this plugin are to allow customization of headers/values from within your own application.
 
 ### License
 
