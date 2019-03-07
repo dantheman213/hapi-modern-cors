@@ -39,7 +39,7 @@ function init(server) {
 
 const cors = {
     name: 'cors',
-    version: '1.0.0',
+    version: '1.0.1',
     async register(server) {
         init(server);
 
