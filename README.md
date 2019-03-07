@@ -25,7 +25,9 @@ Add this to your hapi initialization:
     await server.register(...);
 
     // routes and config should go here BEFORE calling the plugin
-    // and finally ...
+    // and finally...
+    
+    // ...
 
     await server.register({
         plugin: cors,
