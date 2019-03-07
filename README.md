@@ -2,6 +2,8 @@
 
 Dead simple CORS responses for hapi.
 
+https://www.npmjs.com/package/hapi-modern-cors
+
 ### Description
 
 As of this writing (March 2019) there are no working hapi CORS npm packages available.
