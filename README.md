@@ -46,9 +46,13 @@ Add `cors` reference and the plugin initialization code to your hapi initializat
 ### Default headers for responses
 
 `Access-Control-Allow-Origin` : `*`
+
 `Access-Control-Allow-Credentials` : `false`
+
 `Access-Control-Allow-Methods` : `GET,POST,PUT,DELETE`
+
 `Access-Control-Allow-Headers` : `Accept, Authorization, Content-Type, If-None-Match, X-Requested-With`
+
 `Access-Control-Max-Age` : `1728000`
 
 ### FAQs
