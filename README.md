@@ -6,9 +6,8 @@ https://www.npmjs.com/package/hapi-modern-cors
 
 ### Description
 
-As of this writing (March 2019) there are no other working CORS npm packages available for the
-latest versions of hapi. There was a major refactor of the hapi project in v17+ that broke previous
-paradigms.
+This plugin adds cors support for your hapi project. There was a major refactor of the hapi project in v17+ that
+broke previously working paradigms. This plugin supports the very latest versions of hapi.
 
 ### How does it work?
 
@@ -21,7 +20,7 @@ Additionally, `OPTIONS` will be enabled on all of your existing routes in order 
 
 ### Usage
 
-Add `cors` reference and the plugin initialization code to your hapi initialization:
+Add `cors` reference and add the register plugin code to your hapi initialization:
 
     // ...
     const cors = require('hapi-modern-cors');
@@ -35,7 +34,7 @@ Add `cors` reference and the plugin initialization code to your hapi initializat
     
     // ...
 
-    // plugin initialization code here
+    // register plugin code here
     await server.register({
         plugin: cors,
         options: {},
