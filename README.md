@@ -21,19 +21,21 @@ Additionally, `OPTIONS` will be enabled on all of your existing routes in order 
 
 ### Usage
 
-Add this to your hapi initialization:
+Add `cors` reference and the plugin initialization code to your hapi initialization:
 
     // ...
     const cors = require('hapi-modern-cors');
     // ...
 
-    await server.register(...);
+    // sample startup method
+    const server = Hapi.server(...);
 
     // routes and config should go here BEFORE calling the plugin
     // and finally...
     
     // ...
 
+    // plugin initialization code here
     await server.register({
         plugin: cors,
         options: {},
@@ -41,11 +43,22 @@ Add this to your hapi initialization:
 
     await server.start();
 
-### Notes
+### Default headers for responses
+
+`Access-Control-Allow-Origin` : `*`
+`Access-Control-Allow-Credentials` : `false`
+`Access-Control-Allow-Methods` : `GET,POST,PUT,DELETE`
+`Access-Control-Allow-Headers` : `Accept, Authorization, Content-Type, If-None-Match, X-Requested-With`
+`Access-Control-Max-Age` : `1728000`
+
+### FAQs
 
 ##### How do CORS pre-flight work?
 
-Before requests can begin to use CORS a pre-flight request is typically sent to the server at the same path you're requesting. However, the request will use `OPTIONS` rather than `GET`, `POST`, etc. The response to this request should contain some default CORS headers. This plugin will automatically create all `OPTIONS` routes to enable pre-flight requests to all your existing endpoints.
+Before requests can begin to use CORS a pre-flight request is typically sent to the server at the same path you're 
+requesting. However, the request will use `OPTIONS` rather than `GET`, `POST`, etc. The response to this request should
+contain some default CORS headers. This plugin will automatically create all `OPTIONS` routes to enable pre-flight
+requests to all your existing endpoints.
 
 ##### What happens when the origin is set?
 
@@ -53,9 +66,10 @@ When `origin` is set in the request header then the response will set the origin
 `Allow-Credentials` will be set from `false` to `true`. For security reasons, `Allow-Credentials` cannot be set to
 `true` when `*` is used for `origin`.
 
-### What's next?
+### Contribute
 
-The next features and goals for this plugin are to allow customization of headers/values from within your own application.
+The easiest way you can contribute is to report problems, bugs, or issues when you see them. Please use tags when you
+create your issues in Github. Pull requests are welcome.
 
 ### License
 
