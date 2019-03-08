@@ -9,6 +9,10 @@ https://www.npmjs.com/package/hapi-modern-cors
 This plugin adds cors support for your hapi project. There was a major refactor of the hapi project in v17+ that
 broke previously working paradigms. This plugin supports the very latest versions of hapi.
 
+### Requirements
+
+* NodeJS v6.4.0 or higher (ES6 support)
+
 ### How does it work?
 
 This plugin, by default, will append open and permissive CORS headers on all of your existing endpoints and responses.
