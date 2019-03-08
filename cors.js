@@ -37,34 +37,35 @@ function init(server) {
     }
 }
 
+async function appendHeaders(request, h) {
+    let origin = '*';
+    let allowCreds = false;
+
+    if (request.headers.origin) {
+        // CORS spec requires 'Allow-Credentials' header can't be set
+        // to 'true' when using '*" in 'Allow-Origin' for security purposes.
+        origin = request.headers.origin; // eslint-disable-line prefer-destructuring
+        allowCreds = true;
+    }
+
+    // boom requests handles response obj differently
+    const response = request.response.isBoom ? request.response.output : request.response;
+
+    response.headers['Access-Control-Allow-Origin'] = origin;
+    response.headers['Access-Control-Allow-Credentials'] = allowCreds;
+    for (const defaultHeader of defaultCorsHeaders) {
+        response.headers[defaultHeader.key] = defaultHeader.value;
+    }
+
+    return h.continue;
+}
+
 const cors = {
     name: 'cors',
     version: '1.0.3',
     async register(server) {
         init(server);
-
-        server.ext('onPreResponse', async (request, h) => {
-            let origin = '*';
-            let allowCreds = false;
-
-            if (request.headers.origin) {
-                // CORS spec requires 'Allow-Credentials' header can't be set
-                // to 'true' when using '*" in 'Allow-Origin' for security purposes.
-                origin = request.headers.origin; // eslint-disable-line prefer-destructuring
-                allowCreds = true;
-            }
-
-            // boom requests handles response obj differently
-            const response = request.response.isBoom ? request.response.output : request.response;
-
-            response.headers['Access-Control-Allow-Origin'] = origin;
-            response.headers['Access-Control-Allow-Credentials'] = allowCreds;
-            for (const defaultHeader of defaultCorsHeaders) {
-                response.headers[defaultHeader.key] = defaultHeader.value;
-            }
-
-            return h.continue;
-        });
+        server.ext('onPreResponse', appendHeaders);
     },
 };
 
