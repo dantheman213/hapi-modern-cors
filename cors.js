@@ -91,7 +91,7 @@ async function appendHeaders(request, h) {
 
 const cors = {
     name: 'cors',
-    version: '1.0.3',
+    version: '1.1.0',
     async register(server, options) {
         setConfig(options);
         init(server);

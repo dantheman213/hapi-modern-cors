@@ -1,6 +1,6 @@
 {
   "name": "hapi-modern-cors",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Enables cors for a hapijs v17+ app after hapijs was refactored.",
   "main": "cors.js",
   "author": "Daniel Gillespie <danielg@csu.fullerton.edu>",
