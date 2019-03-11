@@ -29,6 +29,8 @@ function init(server) {
 }
 
 function setConfig(o) {
+    customOptions = {};
+
     if (o) {
         if (o.allowCreds) {
             customOptions.allowCreds = o.allowCreds;

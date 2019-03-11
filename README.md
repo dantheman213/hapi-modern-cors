@@ -63,6 +63,8 @@ Add `cors` reference and add the register plugin code to your hapi initializatio
 All fields are optional and don't need to be included if you're not customizing that value. If a value is not present
 then the corresponding default value is used.
 
+###### Sample:
+
     {
         allowCreds: <boolean>,
         allowMethods: "<string>",
@@ -71,6 +73,17 @@ then the corresponding default value is used.
         overrideOrigin: "<string>",
         maxAge: <int>,
     }
+
+###### Full Example:
+
+    await server.register({
+        plugin: cors,
+        options: {
+            maxAge: 500,
+            allowCreds: false,
+            allowOriginResponse: false
+        },
+    });
 
 ##### allowCreds
 
