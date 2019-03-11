@@ -6,7 +6,7 @@ https://www.npmjs.com/package/hapi-modern-cors
 
 ### Description
 
-This plugin adds cors support for your hapi project. There was a major refactor of the hapi project in v17+ that
+This plugin adds cors support for your [hapi](https://github.com/hapijs/hapi) project. There was a major refactor of the hapi project in v17+ that
 broke previously working paradigms. This plugin supports the very latest versions of hapi.
 
 ### Requirements
@@ -41,7 +41,7 @@ Add `cors` reference and add the register plugin code to your hapi initializatio
     // register plugin code here
     await server.register({
         plugin: cors,
-        options: {},
+        options: {}, // Can leave empty. To customize, see `Custom Options` below
     });
 
     await server.start();
@@ -58,7 +58,87 @@ Add `cors` reference and add the register plugin code to your hapi initializatio
 
 `Access-Control-Max-Age` : `1728000`
 
+### Custom Options
+
+All fields are optional and don't need to be included if you're not customizing that value. If a value is not present
+then the corresponding default value is used.
+
+###### Sample:
+
+    {
+        allowCreds: <boolean>,
+        allowMethods: "<string>",
+        allowHeaders: "<string>",
+        allowOriginResponse: <boolean>,
+        overrideOrigin: "<string>",
+        maxAge: <int>,
+    }
+
+###### Full Example:
+
+    await server.register({
+        plugin: cors,
+        options: {
+            maxAge: 500,
+            allowCreds: false,
+            allowOriginResponse: false
+        },
+    });
+
+##### allowCreds
+
+Allow credentials to be passed?
+
+###### Example:
+
+    true
+
+##### allowMethods
+
+What methods do you want to allow?
+
+###### Example:
+
+    'GET,POST'
+
+##### allowHeaders
+
+What headers do you want to allow in your CORS responses?
+
+###### Example:
+
+    'Accept, Content-Type'
+
+##### allowOriginResponse
+
+If a request has an `origin` attached to it should your response attach it as the allowed `origin`?
+
+###### Example:
+
+    false
+
+By default, if a request has an `origin` attached, it will be passed back as the allowed `origin` in the response and
+credentials will be allowed.
+
+##### overrideOrigin
+
+Do you want to set an explicit origin, always?
+
+    'https://google.com'
+
+##### maxAge
+
+How long should these CORS headers be cached?
+
+###### Example:
+
+    600
+
 ### FAQs
+
+##### Is Boom supported?
+
+[Boom](https://github.com/hapijs/boom) is fully supported.
 
 ##### How do CORS pre-flight work?
 
