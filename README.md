@@ -41,7 +41,7 @@ Add `cors` reference and add the register plugin code to your hapi initializatio
     // register plugin code here
     await server.register({
         plugin: cors,
-        options: {},
+        options: {}, // Can leave empty. To customize, see `Custom Options` below
     });
 
     await server.start();
@@ -58,7 +58,7 @@ Add `cors` reference and add the register plugin code to your hapi initializatio
 
 `Access-Control-Max-Age` : `1728000`
 
-### Customize
+### Custom Options
 
 All fields are optional and don't need to be included if you're not customizing that value. If a value is not present
 then the corresponding default value is used.
@@ -69,12 +69,14 @@ then the corresponding default value is used.
         allowHeaders: "<string>",
         allowOriginResponse: <boolean>,
         overrideOrigin: "<string>",
-        maxAge: <int>,    
+        maxAge: <int>,
     }
 
 ##### allowCreds
 
 Allow credentials to be passed?
+
+###### Example:
 
     true
 
@@ -82,17 +84,23 @@ Allow credentials to be passed?
 
 What methods do you want to allow?
 
+###### Example:
+
     'GET,POST'
 
 ##### allowHeaders
 
 What headers do you want to allow in your CORS responses?
 
+###### Example:
+
     'Accept, Content-Type'
 
 ##### allowOriginResponse
 
 If a request has an `origin` attached to it should your response attach it as the allowed `origin`?
+
+###### Example:
 
     false
 
@@ -108,6 +116,8 @@ Do you want to set an explicit origin, always?
 ##### maxAge
 
 How long should these CORS headers be cached?
+
+###### Example:
 
     600
 
